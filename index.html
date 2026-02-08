@@ -1,0 +1,74 @@
+import { useState } from "react";
+
+export default function App() {
+  const [noCount, setNoCount] = useState(0);
+  const [yesClicked, setYesClicked] = useState(false);
+
+  const messages = [
+    "Are you sure, Simona? 🥺",
+    "Really sure? 💔",
+    "Think again, Simona… 😢",
+    "I’ll be very sad 😭",
+    "Please say yes ❤️",
+    "Don’t break my heart 💘"
+  ];
+
+  const handleNo = () => {
+    setNoCount(noCount + 1);
+  };
+
+  const handleYes = () => {
+    setYesClicked(true);
+  };
+
+  const noButtonSize = 16 - noCount * 2;
+  const yesButtonSize = 16 + noCount * 2;
+
+  return (
+    <div className="flex items-center justify-center min-h-screen bg-pink-100 p-4">
+      <div className="text-center bg-white rounded-2xl shadow-xl p-8 max-w-md w-full">
+        {!yesClicked ? (
+          <>
+            <h1 className="text-3xl font-bold mb-6 text-pink-600">
+              Simona, will you be my Valentine? ❤️
+            </h1>
+
+            {noCount > 0 && (
+              <p className="mb-4 text-gray-600">
+                {messages[Math.min(noCount - 1, messages.length - 1)]}
+              </p>
+            )}
+
+            <div className="flex justify-center gap-4 mt-4">
+              <button
+                onClick={handleYes}
+                style={{ fontSize: `${yesButtonSize}px` }}
+                className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-xl transition-all"
+              >
+                Yes ❤️
+              </button>
+
+              <button
+                onClick={handleNo}
+                style={{ fontSize: `${noButtonSize > 8 ? noButtonSize : 8}px` }}
+                className="bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 rounded-xl transition-all"
+              >
+                No 😢
+              </button>
+            </div>
+          </>
+        ) : (
+          <div>
+            <h1 className="text-3xl font-bold text-pink-600 mb-4">
+              YAYYY SIMONA!!! ❤️🎉
+            </h1>
+            <p className="text-lg text-gray-700">
+              You just made me the happiest person alive 💖
+            </p>
+            <div className="mt-6 text-5xl">💘💘💘</div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
