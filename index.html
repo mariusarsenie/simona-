@@ -1,74 +1,45 @@
-import { useState } from "react";
+<!doctype html>
+<html lang="en">
 
-export default function App() {
-  const [noCount, setNoCount] = useState(0);
-  const [yesClicked, setYesClicked] = useState(false);
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Will you be my Valentine?🥹❤️" />
+  <meta name="author" content="Anish" />
+  <meta name="google-site-verification" content="A9PEz5S-vxuNEG2xsGVK1IdfeP5FBflKWeKKLMVwgzo" />
+  <meta name="msvalidate.01" content="D919EEC68AFB633DFFC35FA2609D73A8" />
+  <meta name="robots" content="index, follow" />
+  <meta name="og:title" content="Be my Valentine?❤️" />
+  <meta name="og:description" content="Will you be my Valentine?🥹❤️" />
+  <meta name="og:image" content="https://i.imgur.com/8q884zIl.png" />
+  <meta name="og:url" content="https://formyvalentine.netlify.app/" />
+  <meta name="og:site_name" content="Be my Valentine?❤️" />
+  <meta name="og:type" content="website" />
+  <meta name="twitter:title" content="Be my Valentine?❤️" />
+  <meta name="twitter:description" content="Will you be my Valentine?🥹❤️" />
+  <meta name="twitter:image" content="https://i.imgur.com/8q884zIl.png" />
+  <meta name="twitter:url" content="https://formyvalentine.netlify.app/" />
+  <meta name="twitter:creator" content="@xevenbiswas" />
+  <title>Be my Valentine?</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "kwx3exx6k9");
+</script>
+</head>
 
-  const messages = [
-    "Are you sure, Simona? 🥺",
-    "Really sure? 💔",
-    "Think again, Simona… 😢",
-    "I’ll be very sad 😭",
-    "Please say yes ❤️",
-    "Don’t break my heart 💘"
-  ];
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
 
-  const handleNo = () => {
-    setNoCount(noCount + 1);
-  };
-
-  const handleYes = () => {
-    setYesClicked(true);
-  };
-
-  const noButtonSize = 16 - noCount * 2;
-  const yesButtonSize = 16 + noCount * 2;
-
-  return (
-    <div className="flex items-center justify-center min-h-screen bg-pink-100 p-4">
-      <div className="text-center bg-white rounded-2xl shadow-xl p-8 max-w-md w-full">
-        {!yesClicked ? (
-          <>
-            <h1 className="text-3xl font-bold mb-6 text-pink-600">
-              Simona, will you be my Valentine? ❤️
-            </h1>
-
-            {noCount > 0 && (
-              <p className="mb-4 text-gray-600">
-                {messages[Math.min(noCount - 1, messages.length - 1)]}
-              </p>
-            )}
-
-            <div className="flex justify-center gap-4 mt-4">
-              <button
-                onClick={handleYes}
-                style={{ fontSize: `${yesButtonSize}px` }}
-                className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-xl transition-all"
-              >
-                Yes ❤️
-              </button>
-
-              <button
-                onClick={handleNo}
-                style={{ fontSize: `${noButtonSize > 8 ? noButtonSize : 8}px` }}
-                className="bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 rounded-xl transition-all"
-              >
-                No 😢
-              </button>
-            </div>
-          </>
-        ) : (
-          <div>
-            <h1 className="text-3xl font-bold text-pink-600 mb-4">
-              YAYYY SIMONA!!! ❤️🎉
-            </h1>
-            <p className="text-lg text-gray-700">
-              You just made me the happiest person alive 💖
-            </p>
-            <div className="mt-6 text-5xl">💘💘💘</div>
-          </div>
-        )}
-      </div>
+</html>
     </div>
   );
 }
